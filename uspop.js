@@ -3,18 +3,17 @@ var data = '[{"females": 1808000, "country": "United States", "age": 0, "males":
 var d = JSON.parse(data);
 
 var gend_per = function(){
-    
+    /*
     var total = d.map(function(n){
-	return int(n["total"]);});
+	return parseInt(n["total"]);});
     total.reduce()
-
-
-    //var total = reduce((function x, y: x + y;), d.map(function(n){
-	return int(n["total"]);}));
-    var fem = reduce((function x, y: x + y;), d.map(function(n){
-	return int(n["females"]);}));
-    var males = reduce((function x, y: x + y;), d.map(function(n){
-	return int(n["males"]);}));
+    */
+    var total = reduce(function (x, y){ x + y;}, d.map(function(n){
+	return parseInt(n["total"]);}));
+    var fem = reduce(function( x, y){ x + y;}, d.map(function(n){
+	return parseInt(n["females"]);}));
+    var males = reduce(function( x, y){ x + y;}, d.map(function(n){
+	return parseInt(n["males"]);}));
     fem = fem/total * 100;
     males = males/total * 100;
     return "Females: " + fem + "%, Males: " + males + "%\n";
